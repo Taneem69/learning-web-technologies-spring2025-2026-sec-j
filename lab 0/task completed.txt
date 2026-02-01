@@ -1,0 +1,9 @@
+1. created git repo
+
+2. added a text file
+
+3. committed and pushed the text file
+
+4. created a html file in which we created a table and inserted data
+
+5. added, pushed and committed the html file
