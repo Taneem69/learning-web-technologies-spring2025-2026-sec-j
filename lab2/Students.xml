@@ -4,22 +4,22 @@
         <sl>23</sl>
         <firstName>John</firstName>
         <lastName>Carter</lastName>
-        <addmissionDate>25/12/2015<admmisionDate>
-    <student>
+        <admissionDate>25/12/2015</admissionDate>
+    </student>
 
     <student>
         <sl>29</sl>
         <firstName>Bob</firstName>
         <lastName>Marshel</lastName>
-        <addmissionDate>13/01/1999<admmisionDate>
-    <student>
+        <admissionDate>13/01/1999</admissionDate>
+    </student>
 
 
     <student>
         <sl>35</sl>
         <firstName>Clark</firstName>
         <lastName>Kent</lastName>
-        <addmissionDate>17/06/2005<admmisionDate>
-    <student>
+        <admissionDate>17/06/2005</admissionDate>
+    </student>
 
 </students>

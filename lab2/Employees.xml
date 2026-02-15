@@ -13,7 +13,7 @@
         </addr>
         <department>Sales</department>
         <salary>20000</salary>
-    <employee>
+    </employee>
 
     <employee>
         <id>2</id>
@@ -28,7 +28,7 @@
         </addr>
         <department>Accounts</department>
         <salary>12000</salary>
-    <employee>
+    </employee>
 
 
 
@@ -45,5 +45,5 @@
         </addr>
         <department>Human Resource</department>
         <salary>30000</salary>
-    <employee>
+    </employee>
 </employees>

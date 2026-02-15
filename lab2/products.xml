@@ -6,7 +6,7 @@
         <price>35000</price>
         <stocks>50</stocks>
         <status>1</status>
-    <product>
+    </product>
 
     <product>
         <id>20</id>
@@ -14,7 +14,7 @@
         <price>65300</price>
         <stocks>35</stocks>
         <status>0</status>
-    <product>
+    </product>
 
 
     <product>
@@ -23,5 +23,5 @@
         <price>25100</price>
         <stocks>100</stocks>
         <status>1</status>
-    <product>
+    </product>
 </products>
