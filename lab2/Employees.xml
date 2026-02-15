@@ -2,8 +2,10 @@
 
     <employee>
         <id>1</id>
-        <firstName>John</firstName>
-        <lastName>Doe</lastName>
+        <name>
+            <firstName>John</firstName>
+            <lastName>Doe</lastName>
+        </name>
         <addr>
             <city>Dhaka</city>
             <area>Banani</area>
@@ -17,8 +19,10 @@
 
     <employee>
         <id>2</id>
-        <firstName>Mark</firstName>
-        <lastName>Zuckerberg</lastName>
+        <name>
+            <firstName>Mark</firstName>
+            <lastName>Zuckerberg</lastName>
+        </name>
         <addr>
             <city>Dhaka</city>
             <area>Mirpur</area>
@@ -34,8 +38,10 @@
 
     <employee>
         <id>3</id>
-        <firstName>Ala</firstName>
-        <lastName>Voski</lastName>
+        <name>
+            <firstName>Ala</firstName>
+            <lastName>Voski</lastName>
+        </name>
         <addr>
             <city></city>
             <area>Motijhil</area>
