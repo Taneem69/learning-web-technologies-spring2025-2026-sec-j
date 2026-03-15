@@ -1,0 +1,15 @@
+label{
+    font-weight: bold;
+}
+
+
+.quantity {
+    width: 150px;
+    border-radius: 20px;
+}
+
+
+#totalPrice {
+    width: 150px;
+    border-radius: 20px;
+}
