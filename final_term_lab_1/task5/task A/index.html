@@ -11,12 +11,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="upload5.php" method="post" enctype="multipart/form-data">
     <fieldset>
-        <Legend>Name</Legend>
-            Name:<input type="text" name="name" value=""><br>
-            <hr>
-            <input type="submit" name="" id="">
+        <Legend>Degree</Legend>
+        SSC<input type="checkbox" name="degrees[]" value="SSC"><br>
+        HSC<input type="checkbox" name="degrees[]" value="HSC"><br>
+        BSc<input type="checkbox" name="degrees[]" value="BSc"><br>
+        MSc<input type="checkbox" name="degrees[]" value="MSc"><br>
+        <hr>
+        <input type="submit" name="" id="">
     </fieldset>
     </form>
 
