@@ -29,7 +29,7 @@ if (isset($_POST['degrees'])) {
     <title>Document</title>
 </head>
 <body>
-    <form action="form5B.php" method="post" enctype="multipart/form-data">
+    <form action="form5C.php" method="post" enctype="multipart/form-data">
     <fieldset>
         <Legend>Degree</Legend>
         SSC<input type="checkbox" name="degrees[]" value="SSC"><br>
