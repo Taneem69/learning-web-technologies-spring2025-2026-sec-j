@@ -1,3 +1,14 @@
+<?php
+$email = "";
+
+if (isset($_POST['email'])) {
+    $email = $_POST['email'];
+    echo "email ".$email;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +22,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="upload2.php" method="post" enctype="multipart/form-data">
+    <form action="form2B.php" method="post" enctype="multipart/form-data">
     <fieldset>
         <Legend>Name</Legend>
             Email:<input type="email" name="email" value=""><br>
