@@ -24,7 +24,7 @@ if (isset($_POST['DOB'])) {
 <body>
     <form action="form3B.php" method="post" enctype="multipart/form-data">
     <fieldset>
-        <Legend>Name</Legend>
+        <Legend>DOB</Legend>
             Date:<input type="date" name="DOB" value=""><br>
             <hr>
             <input type="submit" name="" id="">

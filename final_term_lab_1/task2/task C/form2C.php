@@ -24,7 +24,7 @@ if (isset($_POST['email'])) {
 <body>
     <form action="form2C.php" method="post" enctype="multipart/form-data">
     <fieldset>
-        <Legend>Name</Legend>
+        <Legend>Email</Legend>
             Email:<input type="email" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"><br>
             <hr>
             <input type="submit" name="" id="">
