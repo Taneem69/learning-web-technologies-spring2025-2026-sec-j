@@ -31,7 +31,7 @@ if (isset($_POST['blood']) && $_POST['blood'] != "") {
     <legend>Blood Group</legend>
     Blood Group:
     <select name="blood">
-        <option value="">--Select--</option>
+        <option value="">Select</option>
         <option value="A+">A+</option>
         <option value="A-">A-</option>
         <option value="B+">B+</option>
