@@ -11,12 +11,22 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="upload6.php" method="post" enctype="multipart/form-data">
     <fieldset>
-        <Legend>Name</Legend>
-            Name:<input type="text" name="name" value=""><br>
-            <hr>
-            <input type="submit" name="" id="">
+    <legend>Blood Group</legend>
+    Blood Group:
+    <select name="blood">
+        <option value="">--Select--</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+    </select>
+    <input type="submit" name="submit">
     </fieldset>
     </form>
 
