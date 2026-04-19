@@ -70,7 +70,7 @@ $userData = $_SESSION['users'][$currentUser];
     <header>
         <h2>XCompany</h4>
         <div>
-            Logged in as<a href="home.php">Name</a>|
+            Logged in as<a href="home.php"><?php echo $userData['name']; ?></a>|
             <a href="login.php">Logout</a>
         </div>
 
@@ -92,7 +92,7 @@ $userData = $_SESSION['users'][$currentUser];
 
         <div class="welcome">
             <h2 class="mess">
-                Welcome Bob
+                Welcome <?php echo $userData['name']; ?>
             </h2>
         </div>
         

@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
+    header("location: login.php");
+    exit();
+}
+$currentUser = $_SESSION['current_user'];
+$userData = $_SESSION['users'][$currentUser];
+$pic = !empty($userData['profile_pic']) ? $userData['profile_pic'] : 'default.png';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +70,7 @@
     <header>
         <h2>XCompany</h4>
         <div>
-            Logged in as<a href="home.php">Name</a>|
+            Logged in as<a href="home.php"><?php echo $userData['name']; ?></a>|
             <a href="login.php">Logout</a>
         </div>
 
@@ -81,15 +92,11 @@
 
         <fieldset>
             <legend>PROFILE</legend>
-            Name:
-            <hr>
-            Email:
-            <hr>
-            Gender:
-            <hr>
-            Date of Birth:
-            <hr>
-            <img src="" alt="" style="height: 100px; width:100px;"><br>
+            Name: <?php echo $userData['name']; ?><hr>
+            Email: <?php echo $userData['email']; ?><hr>
+            Gender: <?php echo $userData['gender']; ?><hr>
+            Date of Birth: <?php echo $userData['dob']; ?><hr>
+            <img src="<?php echo $pic; ?>" alt="Profile Picture" style="height:100px; width:100px;"><br>
             <a href="ChangePP.php">Change</a>
             <hr>
             <a href="EProfile.php">Edit Profile</a>
