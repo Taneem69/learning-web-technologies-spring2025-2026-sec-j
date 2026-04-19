@@ -80,7 +80,7 @@
         </div>
 
 
-        <form action="">
+        <form method="post">
         <fieldset>
             <legend>EDIT PASSWORD</legend>
             <label>Current Password: </label><input type="password" name="CurrPass" id=""><br><br>

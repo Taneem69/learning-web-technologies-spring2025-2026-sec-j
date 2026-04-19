@@ -49,7 +49,7 @@
     <hr>
 
     <main>
-        <form action="">
+        <form method="post">
             <fieldset id="outerBox">
                 <legend>FORGOT PASSWORD</legend>
                 Email: <input type="email" name="Email" value=""><br><br>

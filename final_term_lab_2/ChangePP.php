@@ -80,7 +80,7 @@
         </div>
 
 
-        <form action="">
+        <form method="post">
         <fieldset>
             <legend>EDIT PROFILE PICTURE</legend>
             <img src="" alt="" style="height:100px; width:100px;"><br>

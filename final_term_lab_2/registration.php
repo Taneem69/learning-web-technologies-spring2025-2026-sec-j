@@ -1,3 +1,47 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['users'])) {
+    $_SESSION['users'] = array();
+}
+
+$error = '';
+$success = '';
+
+if (isset($_POST['submitted'])) {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $userName = trim($_POST['userName']);
+    $pass = trim($_POST['pass']);
+    $confPass = trim($_POST['ConfPass']);
+    $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
+    $day = trim($_POST['day']);
+    $month = trim($_POST['month']);
+    $year = trim($_POST['year']);
+
+    if (empty($name) || empty($email) || empty($userName) || empty($pass) || empty($confPass) || empty($gender) || empty($day) || empty($month) || empty($year)) {
+        $error = 'All fields are required.';
+    } elseif ($pass !== $confPass) {
+        $error = 'Passwords do not match.';
+    } elseif (isset($_SESSION['users'][$userName])) {
+        $error = 'Username already exists.';
+    } else {
+        $dob = $day . '/' . $month . '/' . $year;
+        $_SESSION['users'][$userName] = array(
+            'name' => $name,
+            'email' => $email,
+            'username' => $userName,
+            'password' => $pass,
+            'gender' => $gender,
+            'dob' => $dob,
+            'profile_pic' => ''
+        );
+        $success = 'Registration successful. You can now login.';
+        header("location: login.php");
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,9 +93,10 @@
     <hr>
 
     <main>
-        <form action="">
+        <form method="post">
             <fieldset id="outerBox">
                 <legend>REGISTRATION</legend>
+
                 Name: <input type="text" name="name" value=""><br>
                 <hr>
                 Email: <input type="email" name="email" value=""><br>

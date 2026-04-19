@@ -1,3 +1,55 @@
+<?php
+session_start();
+
+if (isset($_GET['logout'])) {
+    session_destroy();
+    setcookie('remember', '', time() - 3600, '/');
+    header("location: login.php");
+    exit();
+}
+
+if (isset($_SESSION['status']) && $_SESSION['status'] === true) {
+    header("location: dashboard.php");
+    exit();
+}
+
+if (!isset($_SESSION['users'])) {
+    $_SESSION['users'] = array();
+}
+
+if (isset($_COOKIE['remember']) && !isset($_SESSION['status'])) {
+    $username = $_COOKIE['remember'];
+    if (isset($_SESSION['users'][$username])) {
+        $_SESSION['status'] = true;
+        $_SESSION['current_user'] = $username;
+        header("location: dashboard.php");
+        exit();
+    }
+}
+
+$error = '';
+if (isset($_POST['submitted'])) {
+    $username = trim($_POST['userName']);
+    $password = trim($_POST['password']);
+
+    if (empty($username) || empty($password)) {
+        $error = 'Username and Password are required.';
+    } else {
+        if (isset($_SESSION['users'][$username]) && $_SESSION['users'][$username]['password'] === $password) {
+            $_SESSION['status'] = true;
+            $_SESSION['current_user'] = $username;
+            if (isset($_POST['checked'])) {
+                setcookie('remember', $username, time() + 2592000, '/');
+            }
+            header("location: dashboard.php");
+            exit();
+        } else {
+            $error = 'Invalid username or password.';
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,9 +101,10 @@
     <hr>
 
     <main>
-        <form action="">
+        <form method="post">
             <fieldset id="outerBox">
                 <legend>LOGIN</legend>
+                <?php if (!empty($error)) echo '<p class="error">' . $error . '</p>'; ?>
                 User Name: <input type="text" name="userName" value=""><br><br>
                 Password: <input type="password" name="password" value=""><br>
                 <hr>

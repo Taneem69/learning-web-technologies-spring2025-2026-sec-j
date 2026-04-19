@@ -80,7 +80,7 @@
         </div>
 
 
-        <form action="">
+        <form method="post">
         <fieldset>
             <legend>EDIT PROFILE</legend>
             Name: <input type="text" name="name" value="" id="">
