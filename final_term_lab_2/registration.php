@@ -60,7 +60,7 @@
                 <hr>
                 Password: <input type="password" name="pass" value=""><br>
                 <hr>
-                Confirm Password: <input type="password" name:"Cpass" value=""> <br>
+                Confirm Password: <input type="password" name="ConfPass" value=""> <br>
                 <hr>
                 <fieldset>
                     <legend>Gender</legend>
