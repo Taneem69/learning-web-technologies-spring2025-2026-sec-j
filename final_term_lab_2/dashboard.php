@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
+    header("location: login.php");
+    exit();
+}
+$currentUser = $_SESSION['current_user'];
+$userData = $_SESSION['users'][$currentUser];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
