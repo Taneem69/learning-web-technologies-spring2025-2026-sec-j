@@ -1,3 +1,32 @@
+<?php
+session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
+    header("location: login.php");
+    exit();
+}
+$currentUser = $_SESSION['current_user'];
+$userData = $_SESSION['users'][$currentUser];
+
+$error = '';
+if (isset($_POST['submitted'])) {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
+    $dob = trim($_POST['DOB']);
+
+    if (empty($name) || empty($email) || empty($gender) || empty($dob)) {
+        $error = 'All fields are required.';
+    } else {
+        $_SESSION['users'][$currentUser]['name'] = $name;
+        $_SESSION['users'][$currentUser]['email'] = $email;
+        $_SESSION['users'][$currentUser]['gender'] = $gender;
+        $_SESSION['users'][$currentUser]['dob'] = $dob;
+        header("location: profile.php");
+        exit();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +88,7 @@
     <header>
         <h2>XCompany</h4>
         <div>
-            Logged in as<a href="home.php">Name</a>|
+            Logged in as<a href="home.php"><?php  echo $userData["name"]?></a>|
             <a href="login.php">Logout</a>
         </div>
 
@@ -83,14 +112,14 @@
         <form method="post">
         <fieldset>
             <legend>EDIT PROFILE</legend>
-            Name: <input type="text" name="name" value="" id="">
-            <hr>
-            Email: <input type="email" name="email" value="" id="">
-            <hr>
-            Gender: <input type="radio" name="gender" value="Male" id="">Male <input type="radio" name="gender" value="Female" id="">Female <input type="radio" name="gender" value="Other" id="">Other
-            <hr>
-            Date of Birth: <input type="text" name="DOB" value="" id="">(dd/mm/yyyy)
-            <hr>
+            <?php if (!empty($error)) echo '<p class="error">' . $error . '</p>'; ?>
+            Name: <input type="text" name="name" value="<?php echo $userData['name']; ?>"><hr>
+            Email: <input type="email" name="email" value="<?php echo $userData['email']; ?>"><hr>
+            Gender:
+            <input type="radio" name="gender" value="Male" <?php if($userData['gender']=='Male') echo 'checked'; ?>> Male
+            <input type="radio" name="gender" value="Female" <?php if($userData['gender']=='Female') echo 'checked'; ?>>Female
+            <input type="radio" name="gender" value="Other" <?php if($userData['gender']=='Other') echo 'checked'; ?>>Other<hr>
+            Date of Birth: <input type="text" name="DOB" value="<?php echo $userData['dob']; ?>"> (dd/mm/yyyy)<hr>
             <input type="submit" name="submitted" value="submit" id="">
         </fieldset>
         </form>
