@@ -1,50 +1,50 @@
 <?php
 session_start();
 if (!isset($_SESSION['users'])) {
-    $_SESSION['users'] = array();
+    $_SESSION['users']=array();
 }
 
-$step = 1;
-$error = '';
-$email = '';
+$step=1;
+$error='';
+$email='';
 
 if (isset($_POST['submitted'])) {
-    $email = trim($_POST['Email']);
+    $email=trim($_POST['Email']);
     if (empty($email)) {
-        $error = 'Email is required.';
+        $error='Email is required.';
     } else {
-        $found = false;
-        $foundUser = '';
+        $found=false;
+        $foundUser='';
         foreach ($_SESSION['users'] as $uname => $udata) {
-            if ($udata['email'] === $email) {
-                $found = true;
-                $foundUser = $uname;
+            if ($udata['email']===$email) {
+                $found=true;
+                $foundUser=$uname;
                 break;
             }
         }
         if (!$found) {
-            $error = 'Email not found.';
+            $error='Email not found.';
         } else {
-            $code = rand(100000, 999999);
-            $_SESSION['reset_code'] = $code;
-            $_SESSION['reset_email'] = $email;
-            $_SESSION['reset_user'] = $foundUser;
-            $step = 2;
+            $code=rand(100000, 999999);
+            $_SESSION['reset_code']=$code;
+            $_SESSION['reset_email']=$email;
+            $_SESSION['reset_user']=$foundUser;
+            $step=2;
         }
     }
 }
 
 if (isset($_POST['verify'])) {
-    $enteredCode = trim($_POST['code']);
-    if (isset($_SESSION['reset_code']) && $enteredCode == $_SESSION['reset_code']) {
-        $_SESSION['status'] = true;
-        $_SESSION['current_user'] = $_SESSION['reset_user'];
+    $enteredCode=trim($_POST['code']);
+    if (isset($_SESSION['reset_code']) && $enteredCode==$_SESSION['reset_code']) {
+        $_SESSION['status']=true;
+        $_SESSION['current_user']=$_SESSION['reset_user'];
         unset($_SESSION['reset_code'], $_SESSION['reset_email'], $_SESSION['reset_user']);
         header("location: dashboard.php");
         exit();
     } else {
-        $error = 'Invalid code.';
-        $step = 2;
+        $error='Invalid code.';
+        $step=2;
     }
 }
 ?>
@@ -88,12 +88,12 @@ if (isset($_POST['verify'])) {
     <title>Password Recovery Page</title>
     <script>
         function showCode() {
-            var code = "<?php echo isset($_SESSION['reset_code']) ? $_SESSION['reset_code'] : ''; ?>";
+            var code="<?php echo isset($_SESSION['reset_code']) ? $_SESSION['reset_code'] : ''; ?>";
             if (code !== "") {
                 alert("Your reset code is: " + code);
             }
         }
-        <?php if ($step == 2) echo 'window.onload = showCode;'; ?>
+        <?php if ($step==2) echo 'window.onload=showCode;'; ?>
     </script>
 
 </head>
@@ -110,7 +110,7 @@ if (isset($_POST['verify'])) {
     <hr>
 
     <main>
-        <?php if ($step == 1): ?>
+        <?php if ($step==1): ?>
         <form method="post">
             <fieldset id="outerBox">
                 <legend>FORGOT PASSWORD</legend>

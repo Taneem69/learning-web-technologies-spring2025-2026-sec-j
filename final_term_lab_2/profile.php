@@ -4,9 +4,9 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     header("location: login.php");
     exit();
 }
-$currentUser = $_SESSION['current_user'];
-$userData = $_SESSION['users'][$currentUser];
-$pic = !empty($userData['profile_pic']) ? $userData['profile_pic'] : 'default.png';
+$currentUser=$_SESSION['current_user'];
+$userData=$_SESSION['users'][$currentUser];
+$pic=!empty($userData['profile_pic']) ? $userData['profile_pic'] : 'default.png';
 ?>
 
 <!DOCTYPE html>

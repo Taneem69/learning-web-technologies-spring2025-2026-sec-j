@@ -4,19 +4,19 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     header("location: login.php");
     exit();
 }
-$currentUser = $_SESSION['current_user'];
-$userData = $_SESSION['users'][$currentUser];
-$error = '';
-$success = '';
+$currentUser=$_SESSION['current_user'];
+$userData=$_SESSION['users'][$currentUser];
+$error='';
+$success='';
 
 if (isset($_POST['submitted']) && isset($_FILES['profile_pic'])) {
-    $file = $_FILES['profile_pic'];
-    if ($file['error'] === 0 && !empty($file['name'])) {
-        $filename = basename($file['name']);
-        $_SESSION['users'][$currentUser]['profile_pic'] = $filename;
-        $success = 'Profile picture updated.';
+    $file=$_FILES['profile_pic'];
+    if ($file['error']===0 && !empty($file['name'])) {
+        $filename=basename($file['name']);
+        $_SESSION['users'][$currentUser]['profile_pic']=$filename;
+        $success='Profile picture updated.';
     } else {
-        $error = 'Please select a file.';
+        $error='Please select a file.';
     }
 }
 ?>

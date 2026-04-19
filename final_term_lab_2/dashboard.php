@@ -4,8 +4,8 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     header("location: login.php");
     exit();
 }
-$currentUser = $_SESSION['current_user'];
-$userData = $_SESSION['users'][$currentUser];
+$currentUser=$_SESSION['current_user'];
+$userData=$_SESSION['users'][$currentUser];
 ?>
 
 

@@ -4,27 +4,27 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     header("location: login.php");
     exit();
 }
-$currentUser = $_SESSION['current_user'];
-$error = '';
-$success = '';
+$currentUser=$_SESSION['current_user'];
+$error='';
+$success='';
 
 if (isset($_POST['submitted'])) {
-    $currPass = trim($_POST['CurrPass']);
-    $newPass = trim($_POST['NPass']);
-    $retypePass = trim($_POST['RTPass']);
+    $currPass=trim($_POST['CurrPass']);
+    $newPass=trim($_POST['NPass']);
+    $retypePass=trim($_POST['RTPass']);
 
     if (empty($currPass) || empty($newPass) || empty($retypePass)) {
-        $error = 'All fields are required.';
+        $error='All fields are required.';
     } elseif ($_SESSION['users'][$currentUser]['password'] !== $currPass) {
-        $error = 'Current password is incorrect.';
+        $error='Current password is incorrect.';
     } elseif ($newPass !== $retypePass) {
-        $error = 'New passwords do not match.';
+        $error='New passwords do not match.';
     } else {
-        $_SESSION['users'][$currentUser]['password'] = $newPass;
-        $success = 'Password changed successfully.';
+        $_SESSION['users'][$currentUser]['password']=$newPass;
+        $success='Password changed successfully.';
     }
 }
-$userData = $_SESSION['users'][$currentUser];
+$userData=$_SESSION['users'][$currentUser];
 ?>
 <!DOCTYPE html>
 <html lang="en">

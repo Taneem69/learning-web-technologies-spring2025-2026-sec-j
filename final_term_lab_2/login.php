@@ -8,43 +8,43 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
-if (isset($_SESSION['status']) && $_SESSION['status'] === true) {
+if (isset($_SESSION['status']) && $_SESSION['status']===true) {
     header("location: dashboard.php");
     exit();
 }
 
 if (!isset($_SESSION['users'])) {
-    $_SESSION['users'] = array();
+    $_SESSION['users']=array();
 }
 
 if (isset($_COOKIE['remember']) && !isset($_SESSION['status'])) {
-    $username = $_COOKIE['remember'];
+    $username=$_COOKIE['remember'];
     if (isset($_SESSION['users'][$username])) {
-        $_SESSION['status'] = true;
-        $_SESSION['current_user'] = $username;
+        $_SESSION['status']=true;
+        $_SESSION['current_user']=$username;
         header("location: dashboard.php");
         exit();
     }
 }
 
-$error = '';
+$error='';
 if (isset($_POST['submitted'])) {
-    $username = trim($_POST['userName']);
-    $password = trim($_POST['password']);
+    $username=trim($_POST['userName']);
+    $password=trim($_POST['password']);
 
     if (empty($username) || empty($password)) {
-        $error = 'Username and Password are required.';
+        $error='Username and Password are required.';
     } else {
-        if (isset($_SESSION['users'][$username]) && $_SESSION['users'][$username]['password'] === $password) {
-            $_SESSION['status'] = true;
-            $_SESSION['current_user'] = $username;
+        if (isset($_SESSION['users'][$username]) && $_SESSION['users'][$username]['password']===$password) {
+            $_SESSION['status']=true;
+            $_SESSION['current_user']=$username;
             if (isset($_POST['checked'])) {
                 setcookie('remember', $username, time() + 2592000, '/');
             }
             header("location: dashboard.php");
             exit();
         } else {
-            $error = 'Invalid username or password.';
+            $error='Invalid username or password.';
         }
     }
 }

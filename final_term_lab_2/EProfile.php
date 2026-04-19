@@ -4,23 +4,23 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     header("location: login.php");
     exit();
 }
-$currentUser = $_SESSION['current_user'];
-$userData = $_SESSION['users'][$currentUser];
+$currentUser=$_SESSION['current_user'];
+$userData=$_SESSION['users'][$currentUser];
 
-$error = '';
+$error='';
 if (isset($_POST['submitted'])) {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
-    $dob = trim($_POST['DOB']);
+    $name=trim($_POST['name']);
+    $email=trim($_POST['email']);
+    $gender=isset($_POST['gender']) ? $_POST['gender'] : '';
+    $dob=trim($_POST['DOB']);
 
     if (empty($name) || empty($email) || empty($gender) || empty($dob)) {
-        $error = 'All fields are required.';
+        $error='All fields are required.';
     } else {
-        $_SESSION['users'][$currentUser]['name'] = $name;
-        $_SESSION['users'][$currentUser]['email'] = $email;
-        $_SESSION['users'][$currentUser]['gender'] = $gender;
-        $_SESSION['users'][$currentUser]['dob'] = $dob;
+        $_SESSION['users'][$currentUser]['name']=$name;
+        $_SESSION['users'][$currentUser]['email']=$email;
+        $_SESSION['users'][$currentUser]['gender']=$gender;
+        $_SESSION['users'][$currentUser]['dob']=$dob;
         header("location: profile.php");
         exit();
     }
