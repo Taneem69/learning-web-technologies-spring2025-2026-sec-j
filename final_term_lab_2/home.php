@@ -27,7 +27,7 @@
             text-align:center;
         }
     </style>
-    <title>Login Page</title>
+    <title>Home Page</title>
 
 </head>
 <body>

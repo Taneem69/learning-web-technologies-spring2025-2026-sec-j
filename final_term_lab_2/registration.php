@@ -33,7 +33,7 @@
             width:45vw;
         }
     </style>
-    <title>Login Page</title>
+    <title>Registration Page</title>
 
 </head>
 <body>
