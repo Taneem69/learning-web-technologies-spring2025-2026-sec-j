@@ -96,6 +96,8 @@ if (isset($_POST['submitted'])) {
         <form method="post">
             <fieldset id="outerBox">
                 <legend>REGISTRATION</legend>
+                <?php if (!empty($error)) echo '<p class="error">' . $error . '</p>'; ?>
+                <?php if (!empty($success)) echo '<p class="success">' . $success . '</p>'; ?>
 
                 Name: <input type="text" name="name" value=""><br>
                 <hr>
