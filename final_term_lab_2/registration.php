@@ -19,11 +19,18 @@
         }
 
         main{
-            height:100vh;
+            display:flex;
+            justify-content:center;
+            height:75vh;
         }
 
         footer{
             text-align:center;
+            padding-top:10px;
+        }
+
+        #outerBox{
+            width:45vw;
         }
     </style>
     <title>Login Page</title>
@@ -33,9 +40,9 @@
     <header>
         <h2>XCompany</h4>
         <div>
-            <a href="">Home</a>|
-            <a href="">Login</a>|
-            <a href="">Registration</a>
+            <a href="home.php">Home</a>|
+            <a href="login.php">Login</a>|
+            <a href="registration.php">Registration</a>
         </div>
 
     </header>
@@ -43,17 +50,35 @@
 
     <main>
         <form action="">
-            <fieldset>
+            <fieldset id="outerBox">
                 <legend>REGISTRATION</legend>
                 Name: <input type="text" name="name"><br>
+                <hr>
                 Email: <input type="email" name="email"><br>
+                <hr>
                 User Name: <input type="text" name="userName"><br>
+                <hr>
                 Password: <input type="password" name="pass"><br>
+                <hr>
                 Confirm Password: <input type="password" name:"Cpass"><br>
+                <hr>
                 <fieldset>
                     <legend>Gender</legend>
-                    
-                </fieldset>
+                    <input type="radio" name="gender" value="Male">Male<br>
+                    <input type="radio" name="gender" value="Female">Female<br>                   
+                    <input type="radio" name="gender" value="Other">Other
+                </fieldset><hr>
+
+                <fieldset>
+                    <legend>Date of Birth</legend>
+                    <input type="text">/ <input type="text">/<input type="text"> <i>(dd/mm/yyyy)</i>
+                </fieldset><hr>
+
+                <input type="submit">
+                <input type="reset">
+
+
+
             </fieldset>
         </form>
     </main>

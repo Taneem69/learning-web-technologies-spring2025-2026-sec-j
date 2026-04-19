@@ -19,7 +19,8 @@
         }
 
         main{
-            height:100vh;
+            height:75vh;
+
         }
 
         footer{
@@ -33,9 +34,9 @@
     <header>
         <h2>XCompany</h4>
         <div>
-            <a href="">Home</a>|
-            <a href="">Login</a>|
-            <a href="">Registration</a>
+            <a href="home.php">Home</a>|
+            <a href="login.php">Login</a>|
+            <a href="registration.php">Registration</a>
         </div>
 
     </header>
