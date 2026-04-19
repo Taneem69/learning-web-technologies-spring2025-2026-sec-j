@@ -52,12 +52,12 @@
         <form action="">
             <fieldset id="outerBox">
                 <legend>LOGIN</legend>
-                User Name: <input type="text"><br><br>
-                Password: <input type="password"><br>
+                User Name: <input type="text" name="userName" value=""><br><br>
+                Password: <input type="password" name="password" value=""><br>
                 <hr>
-                <input type="checkbox">Remember Me <br>
+                <input type="checkbox" name="checked">Remember Me <br>
                 
-                <input type="submit"> <a href="forgotPassword.php">Forgot Password?</a>
+                <input type="submit" name="submitted" value="submit"> <a href="forgotPassword.php">Forgot Password?</a>
 
 
             </fieldset>

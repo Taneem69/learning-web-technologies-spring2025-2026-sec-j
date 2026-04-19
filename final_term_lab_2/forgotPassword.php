@@ -52,10 +52,10 @@
         <form action="">
             <fieldset id="outerBox">
                 <legend>FORGOT PASSWORD</legend>
-                Email: <input type="email"><br><br>
+                Email: <input type="email" name="Email" value=""><br><br>
                 <hr>
                 
-                <input type="submit">
+                <input type="submit" name="submitted" value="submit">
 
 
             </fieldset>

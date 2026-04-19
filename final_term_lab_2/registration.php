@@ -52,15 +52,15 @@
         <form action="">
             <fieldset id="outerBox">
                 <legend>REGISTRATION</legend>
-                Name: <input type="text" name="name"><br>
+                Name: <input type="text" name="name" value=""><br>
                 <hr>
-                Email: <input type="email" name="email"><br>
+                Email: <input type="email" name="email" value=""><br>
                 <hr>
-                User Name: <input type="text" name="userName"><br>
+                User Name: <input type="text" name="userName" value=""><br>
                 <hr>
-                Password: <input type="password" name="pass"><br>
+                Password: <input type="password" name="pass" value=""><br>
                 <hr>
-                Confirm Password: <input type="password" name:"Cpass"><br>
+                Confirm Password: <input type="password" name:"Cpass" value=""> <br>
                 <hr>
                 <fieldset>
                     <legend>Gender</legend>
@@ -71,10 +71,10 @@
 
                 <fieldset>
                     <legend>Date of Birth</legend>
-                    <input type="text">/ <input type="text">/<input type="text"> <i>(dd/mm/yyyy)</i>
+                    <input type="text" name="day" value="">/ <input type="text" name="month" value="">/<input type="text" name="year" value=""> <i>(dd/mm/yyyy)</i>
                 </fieldset><hr>
 
-                <input type="submit">
+                <input type="submit" name="submitted" value="submit">
                 <input type="reset">
 
 
