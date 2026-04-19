@@ -1,3 +1,31 @@
+<?php
+session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
+    header("location: login.php");
+    exit();
+}
+$currentUser = $_SESSION['current_user'];
+$error = '';
+$success = '';
+
+if (isset($_POST['submitted'])) {
+    $currPass = trim($_POST['CurrPass']);
+    $newPass = trim($_POST['NPass']);
+    $retypePass = trim($_POST['RTPass']);
+
+    if (empty($currPass) || empty($newPass) || empty($retypePass)) {
+        $error = 'All fields are required.';
+    } elseif ($_SESSION['users'][$currentUser]['password'] !== $currPass) {
+        $error = 'Current password is incorrect.';
+    } elseif ($newPass !== $retypePass) {
+        $error = 'New passwords do not match.';
+    } else {
+        $_SESSION['users'][$currentUser]['password'] = $newPass;
+        $success = 'Password changed successfully.';
+    }
+}
+$userData = $_SESSION['users'][$currentUser];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +87,7 @@
     <header>
         <h2>XCompany</h4>
         <div>
-            Logged in as<a href="home.php">Name</a>|
+            Logged in as<a href="home.php"><?php echo $userData['name']; ?></a>|
             <a href="login.php">Logout</a>
         </div>
 
@@ -83,9 +111,11 @@
         <form method="post">
         <fieldset>
             <legend>EDIT PASSWORD</legend>
-            <label>Current Password: </label><input type="password" name="CurrPass" id=""><br><br>
-            <label style="color:green">New Password: </label><input type="password" name="NPass" id=""><br><br>
-            <label style="color:red">Retype New Password: </label><input type="password" name="RTPass" id=""><br><br>
+            <?php if (!empty($error)) echo '<p class="error">' . $error . '</p>'; ?>
+            <?php if (!empty($success)) echo '<p class="success">' . $success . '</p>'; ?>
+            <label>Current Password: </label><input type="password" name="CurrPass"><br><br>
+            <label style="color:green">New Password: </label><input type="password" name="NPass"><br><br>
+            <label style="color:red">Retype New Password: </label><input type="password" name="RTPass"><br><br>
             <hr>
             <input type="submit" name="submitted" value="submit" id="">
         </fieldset>
