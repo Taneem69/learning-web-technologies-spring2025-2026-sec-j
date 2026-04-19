@@ -1,3 +1,26 @@
+<?php
+session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
+    header("location: login.php");
+    exit();
+}
+$currentUser = $_SESSION['current_user'];
+$userData = $_SESSION['users'][$currentUser];
+$error = '';
+$success = '';
+
+if (isset($_POST['submitted']) && isset($_FILES['profile_pic'])) {
+    $file = $_FILES['profile_pic'];
+    if ($file['error'] === 0 && !empty($file['name'])) {
+        $filename = basename($file['name']);
+        $_SESSION['users'][$currentUser]['profile_pic'] = $filename;
+        $success = 'Profile picture updated.';
+    } else {
+        $error = 'Please select a file.';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +82,7 @@
     <header>
         <h2>XCompany</h4>
         <div>
-            Logged in as<a href="home.php">Name</a>|
+            Logged in as<a href="home.php"><?php echo $userData['name']; ?></a>|
             <a href="login.php">Logout</a>
         </div>
 
@@ -83,8 +106,10 @@
         <form method="post">
         <fieldset>
             <legend>EDIT PROFILE PICTURE</legend>
-            <img src="" alt="" style="height:100px; width:100px;"><br>
-            <input type="file">
+            <?php if (!empty($error)) echo '<p class="error">' . $error . '</p>'; ?>
+            <?php if (!empty($success)) echo '<p class="success">' . $success . '</p>'; ?>
+            <img src="<?php echo !empty($userData['profile_pic']) ? $userData['profile_pic'] : 'default.png'; ?>"alt="Current Picture" style="height:100px; width:100px;"><br>
+            <input type="file" name="profile_pic"><br>
             <hr>
             <input type="submit" name="submitted" value="submit" id="">
         </fieldset>
