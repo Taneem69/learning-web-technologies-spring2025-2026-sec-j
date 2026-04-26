@@ -50,15 +50,15 @@
             }
             ?>
             <td>
-                <a href="../controller/read.php?id=<?php echo $product['ID']; ?>">READ</a> || 
-                <a href="../controller/update.php?id=<?php echo $product['ID']; ?>">UPDATE</a> || 
-                <a href="../controller/delete.php?id=<?php echo $product['ID']; ?>">DELETE</a>
+                <a href="read.php?id=<?php echo $product['ID']; ?>">READ</a> || 
+                <a href="update.php?id=<?php echo $product['ID']; ?>">UPDATE</a> || 
+                <a href="delete.php?id=<?php echo $product['ID']; ?>">DELETE</a>
             </td>
         </tr>
         <?php endforeach; ?>
     </table>
 
-    <h4>Create a Product =><a href="..controller/create.php">CREATE</a></h4>
+    <h4>Create a Product =><a href="create.php">CREATE</a></h4>
     <a href="home.php">GO BACK</a>
 </body>
 </html>
