@@ -16,5 +16,8 @@
         $_SESSION['Products'] = array_values($products);
 
         header('location: ../view/viewProduct.php');
+
+
+        
     }
 ?>

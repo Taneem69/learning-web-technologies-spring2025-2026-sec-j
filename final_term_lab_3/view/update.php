@@ -6,6 +6,7 @@ $products = $_SESSION["Products"];
 
 $product = [];
 
+
 foreach($products as $pro) {
     if($pro["ID"] == $ID) {
         $product = $pro;

@@ -26,7 +26,8 @@ if(isset($_POST['submit'])) {
     
     // Redirect back to product list
     header("Location: ../view/viewProduct.php");
-} else {
+
+    } else {
     // If someone tries to access this file directly
     header("Location: ../view/viewProduct.php");
 }

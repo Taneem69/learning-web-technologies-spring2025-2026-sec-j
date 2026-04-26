@@ -39,6 +39,8 @@
                 echo "<th>$key</th>";
             }
             ?>
+
+            
             <th>ACTION</th>
         </tr>
 

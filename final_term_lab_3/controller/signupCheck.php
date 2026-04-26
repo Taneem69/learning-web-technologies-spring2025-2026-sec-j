@@ -8,6 +8,9 @@
         $password=$_REQUEST["password"];
         $confirmPass=$_REQUEST["confPass"];
 
+
+        
+
         if($username=='' || $email=='' || $password=='' || $confirmPass==''){
             echo "Fillup every Field";
         }

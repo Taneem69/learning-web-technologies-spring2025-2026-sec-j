@@ -12,6 +12,8 @@
             'Name' => $name,
             'Price' => $price,
             'Quantity' => $quantity
+
+            
         ];
 
         $_SESSION['Products'][] = $newProduct;
