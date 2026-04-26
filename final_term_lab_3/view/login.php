@@ -10,6 +10,7 @@
         Username: <input type="text" name="username" id=""><br>
         Password: <input type="password" name="password" id=""><br>
         <input type="submit" name="submit" id=""><a href="signup.php">SignUp</a>
+
     </form>
 </body>
 </html>
