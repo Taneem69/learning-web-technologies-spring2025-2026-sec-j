@@ -12,6 +12,7 @@
         Password: <input type="password" name="password" id=""><br>
         Confirm Password: <input type="password" name="confPass" id=""><br>
         <input type="submit" name="submit" id="">
+        
     </form>
 </body>
 </html>

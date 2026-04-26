@@ -17,6 +17,7 @@
                 $user=["email"=>$email, "username"=>$username, "password"=>$password];
                 $_SESSION["users"]=$user;
                 header("location: ../view/login.php");
+                
             }
             
             else{
