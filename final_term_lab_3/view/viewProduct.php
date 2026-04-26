@@ -11,7 +11,7 @@
         ["ID"=>5, "Name"=>"Noodles", "Price"=>30, "Quantity"=>100],
         ["ID"=>6, "Name"=>"Chocolate", "Price"=>30, "Quantity"=>100],
         ["ID"=>7, "Name"=>"Ice-creame", "Price"=>30, "Quantity"=>100]
-        
+
     ];
 
 
@@ -32,31 +32,33 @@
     <title>Product List</title>
 </head>
 <body>
-    <table border=1>
+    <table border="1">
         <tr>
             <?php
-            foreach($products[0] as $key=>$value){
+            foreach($products[0] as $key => $value) {
                 echo "<th>$key</th>";
             }
             ?>
-
             <th>ACTION</th>
         </tr>
 
-        <?php
-        foreach($products as $product):?>
+        <?php foreach($products as $product): ?>
         <tr>
             <?php
-            foreach($products[0] as $key=>$value){
+            foreach($products[0] as $key => $value) {
                 echo "<td>$product[$key]</td>";
             }
             ?>
-
-            <td><a href="../controller/read.php">READ</a> || <a href="../controller/update.php">UPDATE</a> || <a href="../controller/delete.php">DELETE</a></td>
+            <td>
+                <a href="../controller/read.php?id=<?php echo $product['ID']; ?>">READ</a> || 
+                <a href="../controller/update.php?id=<?php echo $product['ID']; ?>">UPDATE</a> || 
+                <a href="../controller/delete.php?id=<?php echo $product['ID']; ?>">DELETE</a>
+            </td>
         </tr>
-        <?php endforeach;?>
+        <?php endforeach; ?>
     </table>
 
     <h4>Create a Product =><a href="..controller/create.php">CREATE</a></h4>
+    <a href="home.php">GO BACK</a>
 </body>
 </html>
