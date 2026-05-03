@@ -17,16 +17,16 @@ if ($username === '' || $password === '') {
     exit();
 }
 
-if (isset($_SESSION['user']) && 
-    $username === $_SESSION['user']['username'] && 
-    $password === $_SESSION['user']['password']) {
+if (isset($_SESSION['user']) && $username === $_SESSION['user']['username'] && $password === $_SESSION['user']['password']) {
     
     $_SESSION['status'] = true;
     $_SESSION['username'] = $username;
     setcookie('status', 'true', time() + 3600, '/');
 
     echo json_encode(['status' => 'success', 'message' => 'Login successful']);
-} else {
+} 
+
+else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid username or password']);
 }
 ?>
