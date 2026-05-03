@@ -15,7 +15,7 @@ function ajaxSignup() {
     const xhttp = new XMLHttpRequest();
     xhttp.open('POST', '../controller/signUpCheck.php', true);
     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
+    xhttp.send('user=' + encodeURIComponent(JSON.stringify(data)));
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             const response = JSON.parse(this.responseText);
@@ -32,7 +32,6 @@ function ajaxSignup() {
         }
     };
 
-    xhttp.send('user=' + encodeURIComponent(JSON.stringify(data)));
 }
 
 function ajaxLogin() {
@@ -47,6 +46,7 @@ function ajaxLogin() {
     const xhttp = new XMLHttpRequest();
     xhttp.open('POST', '../controller/loginCheck.php', true);
     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhttp.send('user=' + encodeURIComponent(JSON.stringify(data)));
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
@@ -64,5 +64,4 @@ function ajaxLogin() {
         }
     };
 
-    xhttp.send('user=' + encodeURIComponent(JSON.stringify(data)));
 }
