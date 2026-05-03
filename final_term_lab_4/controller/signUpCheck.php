@@ -30,5 +30,5 @@ $_SESSION['user'] = [
     'password' => $password
 ];
 
-header("location: login.php");
+header("location: ../view/login.php");
 ?>

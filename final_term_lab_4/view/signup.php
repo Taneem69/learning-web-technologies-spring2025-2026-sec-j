@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../asset/signUpDesign.css">
-    <script src="../asset/ajx.js"></script>
+    <script scr="../controller/ajx.js"></script>
     <title>Sign Up</title>
 </head>
 <body>

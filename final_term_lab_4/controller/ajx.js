@@ -1,3 +1,4 @@
+
 function ajaxSignup() {
     const email = document.getElementById('email').value.trim();
     const username = document.getElementById('username').value.trim();

@@ -15,7 +15,7 @@ if(!isset($_COOKIE['status']) || !isset($_SESSION['status'])){
     <title>Home</title>
 </head>
 <body>
-    <h1>Hello,<?php echo htmlspecialchars($_SESSION['username']);?></h1>
+    <h1>Hello <?php echo $_SESSION['username'];?></h1>
 
     <a href="userpage.php">User List</a> |
     <a href="../controller/logout.php">Logout</a>
